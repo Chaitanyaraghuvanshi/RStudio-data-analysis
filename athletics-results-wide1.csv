@@ -1,0 +1,46 @@
+name,age,gender,event,currentRank,previousRank,currentDetail,previousDetail
+bunny,10,female,hideAndSeek,2,5,7.98,6.87
+cuddly paws,9,female,hideAndSeek,3,4,6.85,7.22
+doggie,7,male,hideAndSeek,8,9,5.96,5.42
+flopsy,5,nb,hideAndSeek,6,7,6.44,6.13
+foxy,13,female,hideAndSeek,7,2,6.12,7.70
+gladly,8,male,hideAndSeek,4,3,6.74,7.51
+lfb,9,female,hideAndSeek,5,6,6.60,6.50
+quackers,6,male,hideAndSeek,9,8,5.78,5.89
+shadow,5,female,hideAndSeek,1,1,8.47,8.14
+bunny,10,female,hurdles,3,5,20.1,19.8
+cuddly paws,9,female,hurdles,4,3,21.2,19.2
+doggie,7,male,hurdles,7,6,23.7,19.9
+flopsy,5,nb,hurdles,1,1,19.7,18.6
+foxy,13,female,hurdles,8,7,24.0,20.3
+gladly,8,male,hurdles,6,8,21.9,21.1
+lfb,9,female,hurdles,5,4,21.6,19.5
+quackers,6,male,hurdles,9,9,29.8,28.1
+shadow,5,female,hurdles,2,1,19.9,18.6
+bunny,10,female,longJump,6,5,2.05,2.35
+cuddly paws,9,female,longJump,2,4,2.27,2.47
+doggie,7,male,longJump,7,8,1.78,2.03
+flopsy,5,nb,longJump,4,2,2.11,2.60
+foxy,13,female,longJump,8,7,1.71,2.08
+gladly,8,male,longJump,9,9,1.64,1.98
+lfb,9,female,longJump,3,3,2.24,2.52
+quackers,6,male,longJump,1,1,3.01,3.34
+shadow,5,female,longJump,5,6,2.09,2.29
+bunny,10,female,sprint,7,6,19.2,17.8
+cuddly paws,9,female,sprint,4,2,18.5,16.7
+doggie,7,male,sprint,1,1,16.4,15.2
+flopsy,5,nb,sprint,3,3,18.2,17.0
+foxy,13,female,sprint,2,4,18.0,17.2
+gladly,8,male,sprint,8,8,20.0,18.4
+lfb,9,female,sprint,4,5,18.5,17.3
+quackers,6,male,sprint,9,9,26.1,25.3
+shadow,5,female,sprint,6,7,18.9,18.0
+bunny,10,female,weightLift,8,7,8.1,9.6
+cuddly paws,9,female,weightLift,4,4,10.0,13.0
+doggie,7,male,weightLift,1,1,13.9,15.6
+flopsy,5,nb,weightLift,6,8,8.5,9.4
+foxy,13,female,weightLift,2,3,13.2,14.2
+gladly,8,male,weightLift,3,2,12.8,14.4
+lfb,9,female,weightLift,5,5,9.7,12.2
+quackers,6,male,weightLift,NA,NA,NA,NA
+shadow,5,female,weightLift,6,6,8.5,9.7

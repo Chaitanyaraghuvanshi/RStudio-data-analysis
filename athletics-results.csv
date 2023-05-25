@@ -1,0 +1,91 @@
+name,age,gender,year,event,rank,detail
+bunny,10,female,current,hideAndSeek,2,7.98
+bunny,10,female,current,hurdles,3,20.1
+bunny,10,female,current,longJump,6,2.05
+bunny,10,female,current,sprint,7,19.2
+bunny,10,female,current,weightLift,8,8.1
+cuddly paws,9,female,current,hideAndSeek,3,6.85
+cuddly paws,9,female,current,hurdles,4,21.2
+cuddly paws,9,female,current,longJump,2,2.27
+cuddly paws,9,female,current,sprint,4,18.5
+cuddly paws,9,female,current,weightLift,4,10.0
+doggie,7,male,current,hideAndSeek,8,5.96
+doggie,7,male,current,hurdles,7,23.7
+doggie,7,male,current,longJump,7,1.78
+doggie,7,male,current,sprint,1,16.4
+doggie,7,male,current,weightLift,1,13.9
+flopsy,5,nb,current,hideAndSeek,6,6.44
+flopsy,5,nb,current,hurdles,1,19.7
+flopsy,5,nb,current,longJump,4,2.11
+flopsy,5,nb,current,sprint,3,18.2
+flopsy,5,nb,current,weightLift,6,8.5
+foxy,13,female,current,hideAndSeek,7,6.12
+foxy,13,female,current,hurdles,8,24.0
+foxy,13,female,current,longJump,8,1.71
+foxy,13,female,current,sprint,2,18.0
+foxy,13,female,current,weightLift,2,13.2
+gladly,8,male,current,hideAndSeek,4,6.74
+gladly,8,male,current,hurdles,6,21.9
+gladly,8,male,current,longJump,9,1.64
+gladly,8,male,current,sprint,8,20.0
+gladly,8,male,current,weightLift,3,12.8
+lfb,9,female,current,hideAndSeek,5,6.60
+lfb,9,female,current,hurdles,5,21.6
+lfb,9,female,current,longJump,3,2.24
+lfb,9,female,current,sprint,4,18.5
+lfb,9,female,current,weightLift,5,9.7
+quackers,6,male,current,hideAndSeek,9,5.78
+quackers,6,male,current,hurdles,9,29.8
+quackers,6,male,current,longJump,1,3.01
+quackers,6,male,current,sprint,9,26.1
+quackers,6,male,current,weightLift,NA,NA
+shadow,5,female,current,hideAndSeek,1,8.47
+shadow,5,female,current,hurdles,2,19.9
+shadow,5,female,current,longJump,5,2.09
+shadow,5,female,current,sprint,6,18.9
+shadow,5,female,current,weightLift,6,8.5
+bunny,10,female,previous,hideAndSeek,5,6.87
+bunny,10,female,previous,hurdles,5,19.8
+bunny,10,female,previous,longJump,5,2.35
+bunny,10,female,previous,sprint,6,17.8
+bunny,10,female,previous,weightLift,7,9.6
+cuddly paws,9,female,previous,hideAndSeek,4,7.22
+cuddly paws,9,female,previous,hurdles,3,19.2
+cuddly paws,9,female,previous,longJump,4,2.47
+cuddly paws,9,female,previous,sprint,2,16.7
+cuddly paws,9,female,previous,weightLift,4,13.0
+doggie,7,male,previous,hideAndSeek,9,5.42
+doggie,7,male,previous,hurdles,6,19.9
+doggie,7,male,previous,longJump,8,2.03
+doggie,7,male,previous,sprint,1,15.2
+doggie,7,male,previous,weightLift,1,15.6
+flopsy,5,nb,previous,hideAndSeek,7,6.13
+flopsy,5,nb,previous,hurdles,1,18.6
+flopsy,5,nb,previous,longJump,2,2.60
+flopsy,5,nb,previous,sprint,3,17.0
+flopsy,5,nb,previous,weightLift,8,9.4
+foxy,13,female,previous,hideAndSeek,2,7.70
+foxy,13,female,previous,hurdles,7,20.3
+foxy,13,female,previous,longJump,7,2.08
+foxy,13,female,previous,sprint,4,17.2
+foxy,13,female,previous,weightLift,3,14.2
+gladly,8,male,previous,hideAndSeek,3,7.51
+gladly,8,male,previous,hurdles,8,21.1
+gladly,8,male,previous,longJump,9,1.98
+gladly,8,male,previous,sprint,8,18.4
+gladly,8,male,previous,weightLift,2,14.4
+lfb,9,female,previous,hideAndSeek,6,6.50
+lfb,9,female,previous,hurdles,4,19.5
+lfb,9,female,previous,longJump,3,2.52
+lfb,9,female,previous,sprint,5,17.3
+lfb,9,female,previous,weightLift,5,12.2
+quackers,6,male,previous,hideAndSeek,8,5.89
+quackers,6,male,previous,hurdles,9,28.1
+quackers,6,male,previous,longJump,1,3.34
+quackers,6,male,previous,sprint,9,25.3
+quackers,6,male,previous,weightLift,NA,NA
+shadow,5,female,previous,hideAndSeek,1,8.14
+shadow,5,female,previous,hurdles,1,18.6
+shadow,5,female,previous,longJump,6,2.29
+shadow,5,female,previous,sprint,7,18.0
+shadow,5,female,previous,weightLift,6,9.7

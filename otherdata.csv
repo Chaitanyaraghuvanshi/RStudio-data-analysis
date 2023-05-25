@@ -1,0 +1,67 @@
+name,species,type,time,health,income,height,size,disability
+bear bear,bear,mammal,t1,77,98,24,medium,FALSE
+bear bear,bear,mammal,t2,70,150.31,24,medium,FALSE
+cuddly,bear,mammal,t1,74,89.33,18,medium,FALSE
+cuddly,bear,mammal,t2,66,77.82,18,medium,TRUE
+super size,bear,mammal,t1,68,110,164,large,FALSE
+super size,bear,mammal,t2,54,58.84,164,large,FALSE
+big bunny,bunny,mammal,t1,75,66,44,large,FALSE
+big bunny,bunny,mammal,t2,62,98.01,44,large,TRUE
+bluey,bunny,mammal,t1,72,98,49,large,FALSE
+bluey,bunny,mammal,t2,57,88.03,49,large,TRUE
+pinky,bunny,mammal,t1,80,130,38,large,FALSE
+pinky,bunny,mammal,t2,74,67.62,38,large,FALSE
+rabbit,bunny,mammal,t1,70,85.33,17,medium,FALSE
+rabbit,bunny,mammal,t2,61,138.68,17,medium,TRUE
+whitey,bunny,mammal,t1,74,116.67,12,small,FALSE
+whitey,bunny,mammal,t2,67,136,12,small,FALSE
+eric,cat,mammal,t1,85,101.2,7,small,FALSE
+eric,cat,mammal,t2,78,104.32,7,small,FALSE
+dumbo,elephant,mammal,t1,66,74.67,103,large,FALSE
+dumbo,elephant,mammal,t2,55,111.22,103,large,TRUE
+jeff,elephant,mammal,t1,76,101.33,84,large,FALSE
+jeff,elephant,mammal,t2,71,77.02,84,large,FALSE
+kevin,guitar,other,t1,76,124,25,medium,TRUE
+kevin,guitar,other,t2,62,113.61,25,medium,TRUE
+douglas,hedgehog,mammal,t1,76,98.42,5,small,FALSE
+douglas,hedgehog,mammal,t2,66,99.5,5,small,TRUE
+hippo,hippo,mammal,t1,62,108,67,large,TRUE
+hippo,hippo,mammal,t2,42,53.97,67,large,TRUE
+hugo,hippo,mammal,t1,92,98,22,medium,FALSE
+hugo,hippo,mammal,t2,85,88.9,22,medium,FALSE
+little hugo,hippo,mammal,t1,66,89.33,29,medium,FALSE
+little hugo,hippo,mammal,t2,55,98.27,29,medium,TRUE
+big wol,owl,bird,t1,100,128.67,32,large,FALSE
+big wol,owl,bird,t2,83,103.18,32,large,FALSE
+fluffy,owl,bird,t1,81,120.67,8,small,FALSE
+fluffy,owl,bird,t2,73,85.65,8,small,FALSE
+little owl,owl,bird,t1,55,88.67,10,small,TRUE
+little owl,owl,bird,t2,50,87.6,10,small,TRUE
+owl,owl,bird,t1,69,101.33,27,medium,FALSE
+owl,owl,bird,t2,52,40.59,27,medium,TRUE
+snowy,owl,bird,t1,85,98,20,medium,FALSE
+snowy,owl,bird,t2,78,100.79,20,medium,FALSE
+super eyes,owl,bird,t1,67,93.33,22,medium,TRUE
+super eyes,owl,bird,t2,55,40.51,22,medium,TRUE
+bluekeet,parakeet,bird,t1,86,113.33,6,small,FALSE
+bluekeet,parakeet,bird,t2,80,79.62,6,small,FALSE
+redkeet,parakeet,bird,t1,78,175.33,9,small,FALSE
+redkeet,parakeet,bird,t2,70,90.38,9,small,FALSE
+little blue,penguin,bird,t1,71,87.33,18,medium,FALSE
+little blue,penguin,bird,t2,59,97.2,18,medium,TRUE
+penguin,penguin,bird,t1,97,160,7,small,FALSE
+penguin,penguin,bird,t2,89,165.61,7,small,FALSE
+waddly,penguin,bird,t1,79,96.67,46,large,TRUE
+waddly,penguin,bird,t2,68,108.41,46,large,TRUE
+sissily,snake,other,t1,81,140.67,4,small,FALSE
+sissily,snake,other,t2,74,77.06,4,small,FALSE
+sizzley,snake,other,t1,51,NA,5,small,TRUE
+sizzley,snake,other,t2,65,99.32,5,small,FALSE
+kevin clark,string,other,t1,95,108,3,small,TRUE
+kevin clark,string,other,t2,88,118.83,3,small,TRUE
+pouncy,tiger,mammal,t1,91,106.1,50,large,FALSE
+pouncy,tiger,mammal,t2,69,115.76,50,large,FALSE
+rainbow,unicorn,other,t1,85,113.33,19,medium,FALSE
+rainbow,unicorn,other,t2,72,112.77,19,medium,FALSE
+zebra,zebra,mammal,t1,63,77.33,78,large,TRUE
+zebra,zebra,mammal,t2,55,78.96,78,large,TRUE

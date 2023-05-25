@@ -1,0 +1,219 @@
+---
+title: "RMHI/ARMP Problem Set 1"
+author: 'Chaitanya Chandrika Raghuvanshi 1117645 [Word Count: 988]'
+output: word_document
+---
+
+Please put your answers here, following the instructions in the assignment description. Put your answers and word count tallies in the locations indicated; if none is indicated that means there is no word count for that question. Remember to knit as you go, and submit the knitted version of this on Canvas. 
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+# We'll begin by loading up the libraries and data we need, as always.
+# You don't need to do anything in this code chunk
+knitr::opts_chunk$set(echo = TRUE)
+
+# loading the libraries
+library(tidyverse)
+library(here)
+library(ggplot2)
+library(lsr)
+library(RColorBrewer)
+
+d <- read_csv(file=here("athletics-results.csv"))
+dw1 <- read_csv(file=here("athletics-results-wide1.csv"))
+dw2 <- read_csv(file=here("athletics-results-wide2.csv"))
+ds <- read_csv(file=here("ds.csv"))
+
+# reorders year so previous comes before current (nice for figures)
+d$year <- factor(d$year, levels = c("previous","current"))
+dw2$year <- factor(dw2$year, levels = c("previous","current"))
+ds$year <- factor(ds$year, levels = c("previous","current"))
+```
+
+## Q1 
+
+```{r q1, warning=FALSE, message=FALSE}
+gender_table <- table(filter(dw2, year == "current")$gender)
+gender_table 
+```
+
+*ANSWER: 5 female, 3 male, 1 non-binary.*
+
+
+## Q2 
+
+```{r q2a, warning=FALSE, message=FALSE}
+d$medal <- d$rank <= 3
+```
+
+```{r q2b, warning=FALSE, message=FALSE}
+d %>% mutate(medal = (rank <= 3))
+```
+
+```{r q2c, warning=FALSE, message=FALSE}
+d_medals = d %>%
+    group_by(name) %>%
+    summarise(medal_count = sum(medal, na.rm=TRUE)) %>%
+    ungroup() 
+# d_medals will be used later in ques7
+d_medals %>%
+    filter(medal_count == max(medal_count))
+```
+
+*ANSWER: Flopsy had the most medals, which was 5.*
+
+
+## Q3
+
+```{r q3, warning=FALSE, message=FALSE}
+dt = d %>%
+  filter(event == 'sprint' | event == 'hideAndSeek' | event == 'hurdles')
+do = d %>%
+  filter(event == 'weightLift' | event == 'longJump')
+nrow(dt)
+nrow(do)
+nrow(d)
+```
+
+*ANSWER: In dataset dt and do there are 54 and 36 rows respectively and adding up rows for dt and do gives us 90. There are 90 rows in dataset d which is the combined dataset for all 5 events (dt and do events). Therefore, the datasets have been created correctly. [Word count: 50]*
+
+
+
+## Q4
+
+```{r q4a, warning=FALSE, message=FALSE}
+d_new = d %>% 
+  select(name, age, gender, event, year, rank) %>% 
+  pivot_wider(names_from = "year", values_from = "rank")
+d_new
+```
+
+```{r q4b, warning=FALSE, message=FALSE}
+d_weird = d %>% 
+  pivot_wider(names_from = "year", values_from = "rank")
+d_weird
+```
+
+*(c) ANSWER: d_weird in comparison to d_new has almost double rows (quackers did not weightlift so one less row than double) and NA value for either current or previous year. This is because when we consider detail and medal for each event, the row is specific to that particular year (current or previous) and has different detail and medal values for each year. Whereas, when we don't include it, each row contains information about both current and previous yearas the other columns are generic for both years. [Word count: 86]* 
+
+## Q5
+
+```{r q5a, warning=FALSE, message=FALSE}
+d_sum = d %>%
+  filter(!is.na(detail)) %>%
+  group_by(year, event) %>%
+  summarise(mnDetail = mean(detail), sdDetail = sd(detail)) %>%
+  ungroup()
+d_sum
+```
+
+```{r q5b, warning=FALSE, message=FALSE}
+# code for Q5(b)
+# find each person's best place
+dbest <- dw2 %>% 
+  rowwise() %>% 
+  mutate(best = min(c(hideSeekRank,hurdlesRank,longJumpRank,sprintRank,weightLiftRank),na.rm=TRUE)) %>%
+  group_by(name) %>%
+  summarise(overallBest = min(best,na.rm=TRUE)) %>%
+  ungroup()
+```
+
+*(b) ANSWER: rowwise() allows you to compute functions one row at a time. In 
+the given code block above, it goes through the mutate function  for each row 
+like a loop or iteration. So, with the help of rowwise() the given code computes
+the minimum rank among all 5 events for each row in dw2. This helps us in 
+getting the best rank for each animal in each year.[Word count: 67]*
+
+```{r q5c, warning=FALSE}
+dw1mean <- dw1 %>% 
+  rowwise() %>% 
+  mutate(meanRank = mean(c(currentRank, previousRank),na.rm=TRUE))
+dw1mean
+```
+
+
+## Q6
+
+```{r q6, fig.width=8, fig.height=6, warning=FALSE, message=FALSE}
+
+d_sum %>%
+  ggplot(mapping = aes(x = year,y = mnDetail,fill = year)) +
+  geom_col(alpha=0.5, show.legend = FALSE, colour = "black") +
+  geom_jitter(data = d, mapping = aes(x = year, y = detail, colour= year), 
+              alpha =0.7, show.legend = FALSE) +
+  geom_errorbar(mapping=aes(ymin = mnDetail - sdDetail,
+                          ymax = mnDetail + sdDetail), width=0.2, show.legend=FALSE) + 
+  facet_wrap(~event, scales = "free") +
+  theme_bw() +
+  labs(
+  title = "Performance in each event by year",
+  x = "Year",
+  y = "Performance (details vary by event)") +
+  theme(text = element_text(size = 15)) +
+  scale_fill_brewer(palette='Set1')+
+  scale_colour_brewer(palette='Set1')
+```
+
+*(b) ANSWER: The graph shows us how animals have performed comparatively between current and previous year in each event. For hide and seek, the performance of previous and current year is almost the same. The average performance of animals has decreased for all other events. This may suggest that the health of animals in Bunnyland may be declining or there might have been bad weather conditions on the current athletes day. There is one animal performing much worse than the rest in both sprint and hurdles while one performing much better for long jump in both previous and current year. Looking at just the graph, this maybe the same or different animals, however by checking the data we can tell its quackers. The error bars shows us the variability in data and we can see the length of error bar for weight lift is longer indicating there is higher variability in performance of animals in weight lifting compared to other events, questioning the data reliability for the event. [Word count: 166]*
+
+
+## Q7
+
+```{r q7a, fig.width=8, fig.height=6, warning=FALSE, message=FALSE}
+
+d_medals %>%
+  ggplot(mapping = aes(x = "", y = medal_count, fill = name)) +
+  geom_col(color = "black") +
+  geom_text(aes(label = medal_count),
+              position = position_stack(vjust = 0.5), size = 10) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = c("violet", "#4B0082", "blue", "green", "yellow",
+                               "orange","red", "white", "brown")) +
+  theme_void()+
+  guides(fill = guide_legend(title = "animal name"))+
+  labs(title='Distribution of medals among 
+                             all animals') +
+  theme(text = element_text(size = 20))  
+
+```
+
+*(b) ANSWER: (1) I used coord_polar to plot a pie chart with theta='y' to map angle to y. (2) I used scale_fill_manual to manually assign random contrasting colours to the names in the pie chart  [Word count: 33]*
+
+*(c) ANSWER: The figure shows us the distribution of medals received by the nine animals. The different colours showcase the name of each animal as seen in the legend while the number inside them refers to the number of medals received by that animal. Flopsy received the highest number of medals(5) while bunny, lfb and quackers received the lowest(2). This may suggest Flopsy is the most athletic animal while bunny, lfb and quackers are comparatively lazier and unfit. [Word Count: 76]*
+
+
+## Q8
+
+*ANSWER: (1) Setting the alpha very low will make Beta, the type 2 error rate larger. This is because there is a trade off between the two as power depends on sample size, effect size and alpha (2) We can't say the alternative hypothesis is true 99.9% of the time. This is because any statistical claim we make when doing NHST is a claim about the null hypothesis, not the alternative. Rejecting null doesn't mean alternative is true. [Word count: 77]*
+
+## Q9
+
+```{r q9a, warning=FALSE, message=FALSE}
+pnorm(q = 15.2, mean = 18.1, sd = 2.85)
+```
+
+*(a) ANSWER: The probability is 15.44%.* 
+
+
+```{r q9b, warning=FALSE, message=FALSE}
+pnorm(q = 16.4, mean = 19.3, sd = 2.73)
+```
+
+*(b) ANSWER: The probability is 14.41%.* 
+
+*(c) ANSWER: Doggie did better in the current year, relative to everyone else. The probabilities calculated in above parts refer to the percentage of animals faster than Doggie. We want this value to be low for Doggie to do relatively better, and 14.41<15.44, therefore Doggie did better in current year.  [Word count: 48]* 
+
+*(d) ANSWER:The null hypothesis is that Doggie does not perform better relative to others. The p-value is a claim about how likely you were to see your data if the null hypothesis were true.The null hypothesis says there is a 15.44% chance of Doggie not doing better relative to others, making our pvalue for previous year 15.44%. Similarly for the current year The null hypothesis says there is a 14.41% chance of Doggie not doing better relative to others, making our pvalue for previous year 14.41%. [Word count: 85]* 
+
+
+## Q10
+
+*(a) ANSWER: Y most accurately captures what we would expect her sampling distribution of her scores after 1000 competitions to look like. Firstly, according to central limit theorem no matter the underlying distribution, the sampling distribution will be normal for a large enough sample size like that of our 1000 samples. We have a population of experiments in which Bunny jumps 50 times in each competition. The maximum taken from those populations comprises the sampling distribution of the maximum. So, when taking the maximum jump, the data is going to be left skewed with most values lying near 3 and minimal towards 0. This is because it is highly unlikely for Bunny to receive low score for all 50 trials in a competition.  [Word count: 121]* 
+
+*(b) ANSWER:V most accurately captures what we would expect her sampling distribution when we take mean distance as score. Firstly, according to central limit theorem no matter the underlying distribution, the sampling distribution will be normal for a large enough sample size like that of our 1000 samples. The means of the distance of 50 trials for each competition comrpises the sampling distribution of mean. So, when taking the mean jump, it is likely that majority of the values would be near 1.5 as it is the mean between the range of possible values, that is, 0 to 3. This is best represented by figure V. [Word count: 105]* 
+
+*(c) ANSWER: U captures the distribution in this case most accurately. This is because no matter how many times she jumps, the probability of her jumping anywhere from 0-3 is equally likely. Therefore even for a 1000 independent samples, she will have the same probability of jumping and we get a straight line as the distribution. Furthermore, since its only one value, the maximum as well as the mean is going to be that value itself. [Word count: 74]* 
+
+
+## Q11
+
+*Everyone in Bunnyland is going hungry because there is lack of food or druaght cnditions.*
